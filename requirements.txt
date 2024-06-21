@@ -1,0 +1,6 @@
+pygame
+imageio
+Pillow
+requests
+selenium
+beautifulsoup4
