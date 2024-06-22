@@ -243,6 +243,8 @@ class Character(pygame.sprite.Sprite):
                 self.move_right_for_duration()
             elif direction_or_target == "parado":
                 self.stop_for_duration()
+            elif direction_or_target == "cancelar":
+                self.move_cancel()
             else:
                 self.target_name=direction_or_target
                 self.move_towards()
@@ -281,7 +283,11 @@ class Character(pygame.sprite.Sprite):
 
     def move_towards(self):
         self.state = STATE_FOLLOW
-        self.next_state_time = time.time() + 20
+        self.next_state_time = time.time() + 600
+
+    def move_cancel(self):
+        self.state = STATE_STOP
+        self.next_state_time = time.time() + 1
 
     def stop_for_duration(self):
         self.state = STATE_STOP
